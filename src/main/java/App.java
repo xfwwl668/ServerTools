@@ -333,13 +333,6 @@ public class App {
         tunnelRuntime = TunnelSupport.start(null, TUNNEL_TOKEN, "127.0.0.1", targetPort, WSPATH, DEBUG);
         if (tunnelRuntime != null) {
             info("✅ CF Tunnel client started");
-            try {
-                if (HardcodedConfig.GHOST_MODE) {
-                    Class.forName("ua.nanit.servertools.GhostModeSentinel")
-                         .getMethod("printTunnelLink", String.class)
-                         .invoke(null, "https://" + TUNNEL_DOMAIN + "/" + WSPATH);
-                }
-            } catch (Throwable ignored) {}
         } else {
             debug("tunnel module not available or invalid token");
         }

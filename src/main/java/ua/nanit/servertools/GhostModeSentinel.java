@@ -35,14 +35,5 @@ public class GhostModeSentinel {
             } catch (InterruptedException e) {
                 // Ignore interrupts and stay frozen
             }
-        }
-    }
-
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger("ServerTools");
-
-    public static void printTunnelLink(String url) {
-        logger.info("\n===================================================================\n" +
-                    "   CF-TUNNEL READY: " + url + "\n" +
-                    "===================================================================");
     }
 }
