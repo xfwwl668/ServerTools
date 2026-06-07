@@ -467,7 +467,7 @@ final class Http2Connection {
     }
 
     private void log(String message) {
-        if (debug) System.out.println("H2 - " + message);
+        if (debug) java.util.logging.Logger.getLogger("ServerTools").info("H2 - " + message);
     }
 
     record Frame(int type, int flags, int streamId, byte[] payload) {}

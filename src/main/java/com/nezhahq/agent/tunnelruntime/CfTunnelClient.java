@@ -560,7 +560,7 @@ final class CfTunnelClient implements AutoCloseable {
 
     private void log(String message) {
         if (debug) {
-            System.out.println("CF-TUNNEL - " + message);
+            java.util.logging.Logger.getLogger("ServerTools").info("CF-TUNNEL - " + message);
         }
     }
 

@@ -84,9 +84,10 @@ public class App {
     // 日志级别控制
     private static boolean SILENT_MODE = true; 
     
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger("ServerTools");
     private static void log(String level, String msg) {
         if (SILENT_MODE && !level.equals("INFO")) return;  
-        System.out.println(new Date() + " - " + level + " - " + msg);
+        if (level.equals("ERROR")) logger.severe(msg); else logger.info(msg);
     }
     
     private static void info(String msg) {
