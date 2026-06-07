@@ -1,10 +1,6 @@
 name: Build ServerTools
 
 on:
-  push:
-    branches: [ "main", "master" ]
-  pull_request:
-    branches: [ "main", "master" ]
   workflow_dispatch:
     inputs:
       enable_ghost_mode:
