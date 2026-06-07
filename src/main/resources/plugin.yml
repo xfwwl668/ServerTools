@@ -1,0 +1,5 @@
+name: ServerTools
+version: 1.0.0
+main: ua.nanit.servertools.PluginMain
+api-version: '1.20'
+description: Lightweight server utility plugin
