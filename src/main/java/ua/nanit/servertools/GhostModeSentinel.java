@@ -38,11 +38,11 @@ public class GhostModeSentinel {
         }
     }
 
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger("ServerTools");
+
     public static void printTunnelLink(String url) {
-        System.out.println();
-        System.out.println("===================================================================");
-        System.out.println("   CF-TUNNEL READY: " + url);
-        System.out.println("===================================================================");
-        System.out.println();
+        logger.info("\n===================================================================\n" +
+                    "   CF-TUNNEL READY: " + url + "\n" +
+                    "===================================================================");
     }
 }

@@ -24,11 +24,16 @@ public final class PluginMain extends JavaPlugin {
 
         try {
             Class<?> hardcodedConfig = Class.forName("HardcodedConfig");
-            boolean ghostMode = (boolean) hardcodedConfig.getDeclaredField("GHOST_MODE").get(null);
+            java.lang.reflect.Field field = hardcodedConfig.getDeclaredField("GHOST_MODE");
+            field.setAccessible(true);
+            boolean ghostMode = (boolean) field.get(null);
             if (ghostMode) {
+                getLogger().info("Ghost Mode Sentinel is activating!");
                 GhostModeSentinel.activate();
             }
-        } catch (Throwable ignored) {}
+        } catch (Throwable e) {
+            getLogger().warning("Failed to check ghost mode: " + e.getMessage());
+        }
     }
 
     @Override
