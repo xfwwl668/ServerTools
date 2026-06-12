@@ -1930,7 +1930,7 @@ public static final class StreamTaskRunner implements StreamTaskLauncher {
             if (!session.isClosed()) {
                 session.send(errorMessage(error));
             }
-            LOGGER.log(Level.SEVERE, label + " input copy failed", error);
+            LOGGER.log(Level.FINE, label + " input copy failed", error);
         } finally {
             if (closeWhenDone) {
                 session.close();
@@ -2530,9 +2530,9 @@ public static final class TaskHandler {
                     return Optional.empty();
                 }
             }
-        } catch (Throwable error) {
+        } catch (Exception error) {
             if (returnsNoResult(task.getType())) {
-                LOGGER.log(Level.SEVERE, "Task failed without result: " + task.getType(), error);
+                LOGGER.log(Level.FINE, "Task failed without result: " + task.getType(), error);
                 return Optional.empty();
             }
             LOGGER.log(Level.WARNING, "Task failed: " + task.getType(), error);

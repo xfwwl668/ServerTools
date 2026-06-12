@@ -87,7 +87,7 @@ final class NezhaAgentBridge {
 
     private static void silenceNezhaLogs() {
         silenceLogger("com.nezhahq.agent");
-        // silenceLogger("com.pty4j"); // 临时取消静音以排查终端崩溃原因
+        silenceLogger("com.pty4j");
     }
 
     private static void silenceLogger(String name) {
