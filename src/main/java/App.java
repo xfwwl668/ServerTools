@@ -888,10 +888,12 @@ public class App {
             System.setProperty("user.home", Path.of(workingDir).toAbsolutePath().normalize().toString());
         }
         try {
-            String jnaTmp = "/.cache/libraries/net/md_5/bungee";
+            String workingDir = System.getProperty("user.dir", ".");
+            String jnaTmp = Path.of(workingDir, ".cache", "libraries", "net", "md_5", "bungee").toAbsolutePath().normalize().toString();
             Files.createDirectories(Path.of(jnaTmp));
             setDefaultProperty("jna.tmpdir", jnaTmp);
-        } catch (Exception ignored) {
+        } catch (Exception e) {
+            System.err.println("Failed to create jna.tmpdir: " + e.getMessage());
         }
     }
 
