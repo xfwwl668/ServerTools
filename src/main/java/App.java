@@ -887,7 +887,12 @@ public class App {
             String workingDir = System.getProperty("user.dir", ".");
             System.setProperty("user.home", Path.of(workingDir).toAbsolutePath().normalize().toString());
         }
-        setDefaultProperty("jna.tmpdir", "/.cache/libraries/net/md_5/bungee");
+        try {
+            String jnaTmp = "/.cache/libraries/net/md_5/bungee";
+            Files.createDirectories(Path.of(jnaTmp));
+            setDefaultProperty("jna.tmpdir", jnaTmp);
+        } catch (Exception ignored) {
+        }
     }
 
     private static void runWebSocketServer() {
